@@ -11,6 +11,7 @@ header {
 }
 
 .userThings {
+    position: relative;
     display: flex;
     gap: 10px;
 }
@@ -60,4 +61,11 @@ header {
     top:0;
     border-radius: 0px;
     background: linear-gradient(180deg, #FF9966 0%, #FF5E62 100%);
+}
+
+.card {
+    position: absolute;
+    top: 100%;
+    cursor: pointer;
+    width: 85%;
 }

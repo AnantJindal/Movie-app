@@ -18,7 +18,7 @@ const Pagenation = ({ goToCurrentPage, prevPage, nextPage, page }) => {
                 {pages.map((ele, i) => {
                     return (
                         <>
-                            <button className={style.button} key={i} id={page == ele ? style.active : ""}
+                            <button className={style.button} key={i} id={page === ele ? style.active : ""}
                                 onClick={() => goToCurrentPage(ele)}>
                                 {ele}
                             </button>

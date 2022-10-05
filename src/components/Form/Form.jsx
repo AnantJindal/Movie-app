@@ -12,6 +12,7 @@ const Form = () => {
         username: "",
         password: ""
     })
+    
     const [userNameError, setuserNameError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -29,7 +30,7 @@ const Form = () => {
     const LoginHandeler = async () => {
         setLoading(true)
 
-        setTimeout( async ()=>{
+        setTimeout(async () => {
             const { username, password } = value
 
 
@@ -46,7 +47,7 @@ const Form = () => {
             else {
                 await fetchingToken();
                 const checkToken = localStorage.getItem("token")
-    
+
                 const data = {
                     "username": value.username,
                     "password": value.password,
@@ -54,13 +55,12 @@ const Form = () => {
                 }
                 const res = await axios.post("https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=36f92e051d1f7b92dd147302b1b51f81", data)
                 setLoading(false)
-                console.log(res.data)
-    
+
                 setValue({
                     username: "",
                     password: ""
                 })
-    
+
                 toast.success("Login Success")
                 navigate('/home')
             }
@@ -82,7 +82,7 @@ const Form = () => {
                     {passwordError ? <p className={style.errorMessage}>Invalid Password</p> : ""}
 
                     <br />
-                    <button disabled={loading==true} className={style.button} onClick={LoginHandeler}>{loading ? <Spin />:"Log in"}</button>
+                    <button disabled={loading === true} className={style.button} onClick={LoginHandeler}>{loading ? <Spin /> : "Log in"}</button>
                 </div>
                 <ToastContainer />
             </section>

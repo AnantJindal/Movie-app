@@ -14,8 +14,6 @@ const Home = () => {
     const [loading, setLoading] = useState(false)
     const [page, setPage] = useState(1)
 
-    console.log(apidata[0])
-
     const getApidata = () => {
         axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=36f92e051d1f7b92dd147302b1b51f81&page=${page}`)
             .then(res => {

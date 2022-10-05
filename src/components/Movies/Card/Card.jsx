@@ -2,11 +2,18 @@ import React from 'react'
 import style from './Card.module.css'
 import Star from '../../../assests/Star .svg'
 import MoviePlayer from '../../../assests/moviePlayer.svg'
+import { useNavigate } from 'react-router'
 
 const Card = ({ele}) => {
+    const navigate = useNavigate()
+    
+    const detailsHandeler = (i) =>{
+        navigate(`/details/${i}`)
+    }
+
     return (
         <>
-                <div className={style.card} key={ele.vote_count}>
+                <div className={style.card} key={ele.vote_count} onClick={()=>detailsHandeler(ele.id)}>
                     <div className={style.cardImg}>
                         <img src={`https://image.tmdb.org/t/p/w500${ele.poster_path}`} alt="MovieBanner" />
                     </div>
