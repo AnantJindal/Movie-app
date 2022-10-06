@@ -13,7 +13,11 @@ function App() {
 
         <Route path="/" element={<SignIn />} />
         <Route path="/home" element={<Protected Component={Home} />} />
+
+        {/* For Individual Movie */}
         <Route path='/details/:id' element={<Protected Component={MovieDetails} />} />
+
+        {/* For Searching Bar Navigation */}
         <Route path='/:id' element={<Protected Component={MovieDetails} />} />
       </Routes>
     </>

@@ -12,7 +12,7 @@ const Form = () => {
         username: "",
         password: ""
     })
-    
+
     const [userNameError, setuserNameError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -33,8 +33,19 @@ const Form = () => {
         setTimeout(async () => {
             const { username, password } = value
 
-
-            if (username.trim() === "" || username !== "Anant_jindal") {
+            if (username.trim() === "" && password.trim() === "") {
+                toast.error("Enter your credintals")
+                setLoading(false)
+            }
+            else if (username.trim() === "") {
+                toast.error("Enter your username")
+                setLoading(false)
+            }
+            else if (password.trim() === "") {
+                toast.error("Enter your password")
+                setLoading(false)
+            }
+            else if (username.trim() === "" || username !== "Anant_jindal") {
                 setuserNameError(true)
                 toast.error("User name is not valid")
                 setLoading(false)
